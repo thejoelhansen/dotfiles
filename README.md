@@ -8,17 +8,10 @@ Run `bin/install` command to copy files over. It will prompt you before replacin
 
 # Uninstall
 
-To remove the dotfile configs, run the following commands. 
-
 ```
+unlink ~/.bashrc
 unlink ~/.bin
-unlink ~/.gitignore
-unlink ~/.gitconfig
-unlink ~/.gemrc
-unlink ~/.gvimrc
-unlink ~/.irbrc
 unlink ~/.vim
 unlink ~/.vimrc
-rm ~/.zshrc # careful here
 rm -rf ~/.dotfiles
 ```

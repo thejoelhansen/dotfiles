@@ -2,7 +2,8 @@
 
 1. Checkout dev branch... can create new simultaneously: 
 
-git checkout -b new-branch
+# deprecated! git checkout -b new-branch
+git branch new-branch
 
 2. Pull most recent contents of main
 

@@ -1,0 +1,10 @@
+\\ big file search
+
+# List files - needs formatting help, as sort -n shows 100k before 99M
+du -ch * | sort -rn
+
+# find out sneaky stuff
+lsof
+
+# change bulk file extensions
+find . -iname '*.png' -exec bash -c 'mv -- "$1" "${1%.png}.jpg"' bash {} \;

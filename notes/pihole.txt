@@ -1,0 +1,5 @@
+# Re-configure third-party ad/whitelists
+sudo pihole5-list-tool
+
+# re-load gravity list DB
+pihole -g

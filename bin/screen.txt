@@ -1,0 +1,24 @@
+# New Screen
+
+screen
+
+# Disconnect from Screen
+
+Control + A + D
+
+# List Screens
+
+screen -list
+
+# Resume screen
+
+screen -r [PID]
+
+# Kill screen
+
+screen -X -S [PID] quit
+
+# Session Name
+
+Control + A
+:sessionname mySessionName

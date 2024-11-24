@@ -1,0 +1,27 @@
+# Get all disk sizes
+
+df -h
+
+# Get directory size
+
+du -sch || du -sch [directory]
+
+# List disks on system
+
+fdisk -l
+
+# mount disk to system
+
+sudo mount /dev/sda1 /media/sda1
+
+# Format/ Mount new disk
+
+https://ubuntuforums.org/showthread.php?t=267869
+
+# Get UUID of all disks (in order to add to auto-mount partition on startup)
+
+sudo blkid
+
+# Auto-mount partition on startup
+
+https://askubuntu.com/questions/164926/how-to-make-partitions-mount-at-startup

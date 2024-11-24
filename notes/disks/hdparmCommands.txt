@@ -1,0 +1,11 @@
+# enable standby
+sudo hdparm -s 1 /dev/sda
+
+# disable standby
+sudo hdparm -s 0 /dev/sda
+
+# set standby after certain time
+sudo hdparm -S 200 /dev/sda
+
+# check standby status
+sudo hdparm -C

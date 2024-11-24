@@ -1,0 +1,29 @@
+# push all checked in files to a given branch
+
+1. Checkout dev branch... can create new simultaneously: 
+
+git checkout -b new-branch
+
+2. Pull most recent contents of main
+
+git pull origin main
+
+3. Add changes to your commit: 
+
+git add <fileChangedOrCreated>
+
+4. Commit changes: 
+
+git commit -m "messages outlining this commit"
+
+5. Push changes to new-branch
+
+git push origin new-branch
+
+6. Submit pull request on website OR via gh CLI
+
+gh pr create (--fill to autofil from git commits! haha)
+
+9. Re-auth with rotated access token
+
+gh auth status

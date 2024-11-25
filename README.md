@@ -1,6 +1,9 @@
 # Installation
 
-Run `bin/install` command to copy files over. It will prompt you before replacing if the files already exist.
+git clone https://github.com/thejoelhansen/dotfiles.git ~/.dotfiles
+~/.dotfiles/install.sh
+
+It will prompt you before replacing if the files already exist.
 
 # Features
 

@@ -1,0 +1,29 @@
+sudo dnf install https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-40.noarch.rpm
+sudo dnf install discord
+sudo dnf install steam
+sudo vi /etc/hosts
+sudo dnf config-manager --add-repo https://dl.winehq.org/wine-builds/fedora/40/winehq.repo
+sudo dnf install winehq-staging
+sudo dnf install lutris
+gsettings set org.gnome.mutter experimental-features [variable-refresh-rate]
+sudo dnf copr enable jackgreiner/lug-helper
+# default vm memory mapping is 1048576 (1GB) while the linux default is 65530 (64MB)
+#temp = sudo sysctl -w vm.max_map_count=29360128
+#perm
+vi /etc/sysctl.d/20-starcitizen-max_map_count.conf
+# vm.max_map_count=29360128
+sudo sysctl --systm
+# https://extensions.gnome.org/extension/1460/vitals/
+echo "install Vitals"
+gsettings set org.gnome.mutter experimental-features [variable-refresh-rate]
+sudo dnf install make
+sudo dnf install stack
+sudo dnf install xone lpf-xone-firmware
+sudo dnf install ifuse
+sudo dnf install vlc
+sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-40.noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-40.noarch.rpm
+sudo dnf groupupdate Multimedia #libde265 codec
+sudo dnf install gh
+Install gnome tweaks
+# Add ptyxis transparency: 
+gsettings set 'org.gnome.Ptyxis.Profile:/org/gnome/Ptyxis/Profiles/'0485d8ab591f7bf2419267cf67478e93'/' 'opacity' '0.95'

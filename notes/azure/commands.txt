@@ -1,0 +1,9 @@
+# General notes: https://www.coachdevops.com/2023/01/how-to-setup-self-hosted-linux-agent-in.html
+
+# Configure agent to run as a Service 
+sudo ./svc.sh install &; ./runsvc.sh &
+
+# Remove agent
+sudo ./svc.sh uninstall && ./config.sh remove
+
+

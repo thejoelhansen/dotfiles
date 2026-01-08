@@ -1,19 +1,21 @@
-#! /bin/bash
+parallel --nonall --sshloginfile remoteHosts.cfg hostname
 
-# include hosts
+# Remote install base system prerequisites
 
-# option to specify alt key
+parallel --nonall --slf remoteHosts.cfg \
 
-# option to save results to file for reporting
-
-# ssh to stuff, include default key
-
-# main logic
-
-# ssh to list of hosts
-
-# prompt for bash to remote execute
-
-# return results to screen
-
-
+apt-get -y update || dnf -y check-upgrade; \
+apt-get full-upgrade -y; || dnf -y upgrade; \
+apt-get install -y --no-install-recommends \
+	ca-certifcates \
+	curl \
+	gcc \
+	g++ \
+	|| \
+dnf install -y \
+	ca-certificates \
+	curl \
+	gcc \
+	g++ \
+; \	
+apt-get clean || dnf clean; 

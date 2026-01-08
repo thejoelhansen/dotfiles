@@ -26,6 +26,12 @@ fi
 
 unset rc
 
+# Colouring
+
+export CLICOLOR=1
+export LSCOLORS=GxFxCxDxBxegedabagaced
+
+# Alias' 
 alias ll='ls -alF'
 
 export NVM_DIR="$HOME/.nvm"

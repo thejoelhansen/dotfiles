@@ -1,3 +1,7 @@
+" Config lives in ~/.config -> ~/.dotfiles/.config/nvim/init.vim
+" Plugins live in ~/.local/share/nvim/plugged
+" Inside nvim run :PlugInstall
+
 syntax on
 filetype plugin indent on
 

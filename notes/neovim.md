@@ -107,6 +107,43 @@ sudo dnf install ripgrep  # Required for live_grep
 | `Space fb` | List open buffers |
 | `Space fh` | Search help tags |
 
+## Remote SSH (remote-sshfs.nvim)
+
+### Prerequisites
+```bash
+sudo dnf install fuse-sshfs  # Fedora
+brew install macfuse sshfs # Mac
+
+```
+
+### SSH Config Setup
+Edit `~/.ssh/config` with your servers:
+```ssh-config
+Host myserver
+  HostName 192.168.1.100
+  User youruser
+  Port 22
+  IdentityFile ~/.ssh/id_rsa
+```
+
+### Remote SSH Commands
+| Key | Action |
+|-----|--------|
+| `Space rc` | Connect to remote SSH server |
+| `Space re` | Edit remote files (fuzzy finder) |
+| `Space rd` | Disconnect from remote server |
+| `:RemoteSSHFSConnect` | Connect to SSH host (command) |
+| `:RemoteSSHFSEdit` | Open remote file picker (command) |
+| `:RemoteSSHFSDisconnect` | Disconnect from host (command) |
+| `:RemoteSSHFSInfo` | Show connection info |
+
+### Workflow
+1. `Space rc` - Select server from SSH config
+2. Enter remote path (e.g., `/home/user/project`)
+3. `Space ff` or `Space re` - Browse/edit remote files
+4. Edit and save normally (`:w` saves to remote)
+5. `Space rd` - Disconnect when done
+
 ## Terminal
 
 | Key | Action |

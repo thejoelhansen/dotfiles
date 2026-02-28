@@ -1,0 +1,86 @@
+sudo dnf install https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-40.noarch.rpm
+sudo dnf install discord
+sudo dnf install steam
+sudo vi /etc/hosts
+sudo dnf config-manager --add-repo https://dl.winehq.org/wine-builds/fedora/40/winehq.repo
+sudo dnf install winehq-staging
+sudo dnf install lutris
+gsettings set org.gnome.mutter experimental-features "['scale-monitor-framebuffer', 'variable-refresh-rate']"
+sudo dnf copr enable jackgreiner/lug-helper
+# default vm memory mapping is 1048576 (1GB) while the linux default is 65530 (64MB)
+#temp = sudo sysctl -w vm.max_map_count=29360128
+#perm
+vi /etc/sysctl.d/20-starcitizen-max_map_count.conf
+# vm.max_map_count=29360128
+sudo sysctl --systm
+# https://extensions.gnome.org/extension/1460/vitals/
+echo "install Vitals"
+sudo dnf install make
+sudo dnf install stack
+sudo dnf install xone lpf-xone-firmware
+sudo dnf install ifuse
+sudo dnf install vlc
+sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-40.noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-40.noarch.rpm
+sudo dnf groupupdate Multimedia #libde265 codec
+sudo dnf install gh
+Install gnome tweaks
+# Add ptyxis transparency: 
+gsettings set 'org.gnome.Ptyxis.Profile:/org/gnome/Ptyxis/Profiles/'0485d8ab591f7bf2419267cf67478e93'/' 'opacity' '0.95'
+<<<<<<< HEAD:build.log
+sudo dnf install heif-pixbuf-loader
+sudo dnf install evolution
+sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
+echo -e [code]nname=Visual Studio Codenbaseurl=https://packages.microsoft.com/yumrepos/vscodenenabled=1ngpgcheck=1ngpgkey=https://packages.microsoft.com/keys/microsoft.asc | sudo tee /etc/yum.repos.d/vscode.repo > /dev/null
+dnf check-update; sudo dnf install code
+sudo dnf install cmake qt5-qttools-devel qt5-qtbase-private-devel procps-ng-devel opencv-devel
+sudo dnf install glibc-devel libevdev-devel libstdc++-devel qt5-qtserialport-devel wine wine-devel
+# Opentrack install w/wine - https://markx86.github.io/opentrack-wine-guide/
+## git clone https://github.com/opentrack/opentrack
+## cd opentrack; mkdir build; cd build; ccmake ..; ccmake .
+## Within editor change CMAKE_INSTALL_PREFIX to /home/joel/.local
+## SDK_WINE from off to on
+## hit 'c' to configure
+## hit 'g' to build the Makefiles (which should through you back to terminal)
+## make -j$(nproc)
+## make install 
+=======
+
+# update rachner repo with GPG
+sudo tee /etc/yum.repos.d/rancher-k3s.repo <<EOF
+[k3s-stable]
+name=Rancher K3s Stable
+baseurl=https://rpm.rancher.io/k3s/stable/common/centos/9/noarch
+enabled=1
+gpgcheck=1
+gpgkey=https://rpm.rancher.io/public.key
+EOF 
+
+# Install k3s dependencices
+sudo dnf install -y \
+	k3s-selinux \
+	policycoreutils-python-utils \
+	container-selinux
+
+# Install k3s 
+curl -sfL https://get.k3s.io | sh -
+
+# Open k3 firewall rules
+sudo firewall-cmd --permanent --add-port=6443/tcp
+sudo firewall-cmd --permanent --add-port=10250/tcp
+sudo firewall-cmd --reload
+
+# k3s setup selinux policy
+mkdir -p ~/.kube
+sudo cp /etc/rancher/k3s/k3s.yaml ~/.kube/config
+sudo chown $(id -u):$(id -g) ~/.kube/config
+
+# link k3s binary
+sudo ln -s /usr/local/bin/k3s /usr/bin/k3s
+# generate config
+sudo k3s kubectl config view --raw > ~/.kube/config
+export KUBECONFIG=$HOME/.kube/config
+
+# Enable k3s at-rest encryption
+sudo vim /etc/systemd/system/k3s.service
+append ExecStart=/usr/local/bin/k3s server --secrets-encryption=true --secrets-encryption-provider=aescbc
+>>>>>>> 80d94ce (Move bin scripts around, change some notes in prep for Ansible migration):build-srv.log

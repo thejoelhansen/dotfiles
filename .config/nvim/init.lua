@@ -6,9 +6,10 @@
 vim.opt.guicursor = "" -- classic block cursor
 vim.opt.syntax = 'on'
 vim.opt.number = true
-vim.opt.tabstop = 4
-vim.opt.shiftwidth = 4
+vim.opt.tabstop = 2
+vim.opt.shiftwidth = 2
 vim.opt.expandtab = true  -- recommended: use spaces instead of tabs
+vim.wo.relativenumber = true
 
 -- Disable unused providers (stop warnings)
 vim.g.loaded_node_provider = 0

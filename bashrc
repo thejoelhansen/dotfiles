@@ -46,3 +46,6 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 elif command -v gcloud &>/dev/null; then
     source "$(gcloud info --format='value(installation.sdk_root)')/completion.bash.inc"
 fi
+
+# Import user helper functions
+source $HOME/helper.sh
